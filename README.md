@@ -67,6 +67,23 @@ Modifiez dans `src/components/VideoPlayer.tsx` si nécessaire :
 const streamUrl = `/video/${fluxId}/index.m3u8`
 ```
 
+## 🐳 Déploiement Docker
+
+### Déploiement rapide sur VPS
+
+```bash
+# Cloner le projet
+git clone <votre-repo>
+cd react-hls-player
+
+# Lancer avec Docker Compose
+docker-compose up -d
+```
+
+L'application sera accessible sur **http://votre-vps-ip:8080**
+
+Pour plus de détails (HTTPS, Traefik, etc.), consultez [DEPLOY.md](./DEPLOY.md)
+
 ## 📝 Notes
 
 - Le rechargement automatique est activé par défaut avec Vite

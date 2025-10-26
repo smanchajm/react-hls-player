@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.git
+.gitignore
+.claude
+.vscode
+*.log
+npm-debug.log*
+README.md
+CLAUDE.md
+CDC_STREAMING_WEB.md
+.env
+.env.local
