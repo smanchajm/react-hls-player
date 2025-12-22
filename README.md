@@ -67,9 +67,9 @@ Modifiez dans `src/components/VideoPlayer.tsx` si nécessaire :
 const streamUrl = `/video/${fluxId}/index.m3u8`
 ```
 
-## 🐳 Déploiement Docker
+## 🐳 Déploiement
 
-### Déploiement rapide sur VPS
+### Déploiement avec Docker + Traefik
 
 ```bash
 # Cloner le projet
@@ -77,12 +77,19 @@ git clone <votre-repo>
 cd react-hls-player
 
 # Lancer avec Docker Compose
-docker-compose up -d
+docker compose up -d
 ```
 
-L'application sera accessible sur **http://votre-vps-ip:8080**
+L'application sera accessible sur **http://votre-vps-ip** (port 80)
 
-Pour plus de détails (HTTPS, Traefik, etc.), consultez [DEPLOY.md](./DEPLOY.md)
+### CI/CD avec GitHub Actions
+
+Le projet inclut une pipeline CI/CD complète pour déploiement automatique sur VPS.
+
+📚 **Documentation complète:**
+- [DEPLOY.md](./DEPLOY.md) - Guide de déploiement Docker
+- [docs/SETUP-CICD.md](./docs/SETUP-CICD.md) - Configuration CI/CD
+- [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) - Résolution de problèmes
 
 ## 📝 Notes
 

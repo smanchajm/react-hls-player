@@ -15,17 +15,14 @@ COPY . .
 # Build de production
 RUN npm run build
 
-# Stage 2: Serveur Nginx pour servir les fichiers statiques
-FROM nginx:alpine
+# Stage 2: Serveur HTTP léger avec Caddy
+FROM caddy:2-alpine
 
-# Copier la configuration Nginx personnalisée
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copier les fichiers buildés
+COPY --from=builder /app/dist /srv
 
-# Copier les fichiers buildés depuis le stage précédent
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copier la configuration Caddy
+COPY Caddyfile /etc/caddy/Caddyfile
 
 # Exposer le port 80
 EXPOSE 80
-
-# Nginx démarre automatiquement avec l'image
-CMD ["nginx", "-g", "daemon off;"]
